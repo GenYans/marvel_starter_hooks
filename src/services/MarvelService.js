@@ -24,7 +24,7 @@ class MarvelService {
 
     _transofrmCharacter = (char) => { // Трансформируем обьект API с сервера
         return {
-            name: char.name,
+            name: char.name ? `${char.name.slice(0, 22)}`: null,
             description: char.description ? `${char.description.slice(0, 210)}...` : 'There is no description for this feature',
             thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
             homepage: char.urls[0].url ,
