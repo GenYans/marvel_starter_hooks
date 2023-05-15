@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types'; // ES6
+
 import MarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/errorMessage';
@@ -28,7 +30,7 @@ class CharInfo extends Component {
 
     updateChar = () => {
         const {charId} = this.props;
-        if(!charId) { // Если нет CharID, то мы будем останавливать(не загрузился персонаж, добовляем заглушку)
+        if(!charId) { // Если нет CharID, то мы будем останавливать(не загрузился персонаж, добавляем заглушку)
             return;
         }
         this.onCharLoading();
@@ -123,6 +125,10 @@ const View = ({char}) => {
                 </ul>
         </>
     )
+}
+
+CharInfo.propTypes = {
+    charId: PropTypes.string
 }
 
 export default CharInfo;
